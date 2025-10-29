@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sair Osorio - Portfolio Personal</title>
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Reset y estilos básicos */
         * {
@@ -226,12 +228,44 @@
             margin: 0 auto;
         }
 
-        /* Footer */
+        /* Footer con Redes Sociales */
         .footer {
             background: #1a202c;
             color: white;
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: #9cc9f5;
+            color: #2d394b;
+        }
+
+        .footer-info {
+            margin-top: 1.5rem;
+            opacity: 0.8;
         }
 
         /* Responsive */
@@ -246,6 +280,16 @@
             
             .about-content {
                 grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                gap: 1rem;
+            }
+
+            .social-link {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -357,9 +401,41 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer con Redes Sociales -->
     <footer class="footer">
-        <p>&copy; 2024 Sair Osorio. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <!-- Instagram -->
+            <a href="https://instagram.com/tuusuario" target="_blank" class="social-link" title="Sígueme en Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            
+            <!-- WhatsApp -->
+            <a href="https://wa.me/573001234567" target="_blank" class="social-link" title="Escríbeme por WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            
+            <!-- Correo -->
+            <a href="mailto:sair@osorio.dev" class="social-link" title="Envíame un correo">
+                <i class="fas fa-envelope"></i>
+            </a>
+
+            <!-- LinkedIn (extra) -->
+            <a href="https://linkedin.com/in/tuusuario" target="_blank" class="social-link" title="Conectemos en LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+
+            <!-- GitHub (extra) -->
+            <a href="https://github.com/tuusuario" target="_blank" class="social-link" title="Mira mi código en GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        
+        <div class="footer-info">
+            <p>&copy; 2024 Sair Osorio. Todos los derechos reservados.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                Diseñado y desarrollado con ❤️ por Sair Osorio
+            </p>
+        </div>
     </footer>
 
     <script>
