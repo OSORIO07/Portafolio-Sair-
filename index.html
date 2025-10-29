@@ -18,17 +18,36 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
-            background: #f4f4f4;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background-attachment: fixed;
         }
 
-        /* Header */
+        /* Patrón sutil de cancha de fútbol */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, transparent 49%, rgba(255,255,255,0.03) 49%, rgba(255,255,255,0.03) 51%, transparent 51%),
+                linear-gradient(transparent 49%, rgba(255,255,255,0.03) 49%, rgba(255,255,255,0.03) 51%, transparent 51%),
+                radial-gradient(circle at 50% 50%, transparent 20%, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 21%, transparent 21%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Header con diseño de camiseta */
         .header {
-            background: #2d394b;
+            background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #1a237e 100%);
             color: white;
             padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 4px solid #ffd700;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
         .nav {
@@ -40,187 +59,357 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
-            color: #9cc9f5;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 2px solid #ffd700;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
         }
 
         .nav-links a:hover {
-            color: #9cc9f5;
+            color: #ffd700;
+            background: rgba(255,215,0,0.1);
+            transform: translateY(-2px);
         }
 
-        /* Hero Section */
+        /* Hero Section con diseño de estadio */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(rgba(26, 35, 126, 0.9), rgba(26, 35, 126, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%231a237e" width="1200" height="800"/><circle fill="%23ffd700" opacity="0.1" cx="600" cy="400" r="300"/><circle fill="%23ffd700" opacity="0.05" cx="600" cy="400" r="500"/></svg>');
             color: white;
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(26, 35, 126, 0.9) 70%);
+            pointer-events: none;
         }
 
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            color: #ffd700;
         }
 
-        .hero p {
+        .hero-tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hero-subtitle {
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
+            opacity: 0.8;
         }
 
         .btn {
             display: inline-block;
-            background: #9cc9f5;
-            color: #2d394b;
-            padding: 12px 30px;
-            border-radius: 5px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #1a237e;
+            padding: 15px 35px;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s;
+            border: none;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn:hover {
-            background: #7bb4f0;
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255,215,0,0.4);
         }
 
-        /* About Section */
+        /* About Section con diseño de tarjeta de jugador */
         .about {
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             background: white;
             max-width: 1200px;
-            margin: 2rem auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 3rem auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 3px solid #1a237e;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, #ffd700, transparent, #1a237e, transparent);
+            animation: rotate 10s linear infinite;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .about-content {
+            position: relative;
+            z-index: 2;
         }
 
         .about h2 {
             text-align: center;
-            margin-bottom: 2rem;
-            color: #2d394b;
+            margin-bottom: 3rem;
+            color: #1a237e;
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        .about-content {
+        .about h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+        }
+
+        .about-grid {
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 3rem;
             align-items: center;
         }
 
+        .profile-card {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(26, 35, 126, 0.3);
+            border: 2px solid #ffd700;
+        }
+
         .profile-img {
-            width: 100%;
-            border-radius: 10px;
-            background: #f0f0f0;
-            height: 300px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #666;
+            color: #1a237e;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: 4px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        /* Skills Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat {
+            background: rgba(255,255,255,0.1);
+            padding: 0.8rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        /* Skills Section con diseño de formación tática */
         .skills {
-            padding: 4rem 2rem;
-            background: #2d394b;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
             color: white;
+            position: relative;
+        }
+
+        .skills::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, transparent 49%, rgba(255,255,255,0.05) 49%, rgba(255,255,255,0.05) 51%, transparent 51%),
+                linear-gradient(transparent 49%, rgba(255,255,255,0.05) 49%, rgba(255,255,255,0.05) 51%, transparent 51%);
+            pointer-events: none;
         }
 
         .skills h2 {
             text-align: center;
             margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #ffd700;
+            position: relative;
+            z-index: 2;
         }
 
-        .skills-grid {
+        .formation {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
-        .skill-card {
+        .position {
             background: rgba(255,255,255,0.1);
             padding: 2rem;
-            border-radius: 10px;
+            border-radius: 15px;
             text-align: center;
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            backdrop-filter: blur(10px);
         }
 
-        .skill-card:hover {
-            transform: translateY(-5px);
+        .position:hover {
+            transform: translateY(-10px);
+            border-color: #ffd700;
+            box-shadow: 0 10px 25px rgba(255,215,0,0.3);
         }
 
-        /* Projects Section */
+        .position-icon {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section con diseño de trofeos */
         .projects {
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
+            background: white;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 3rem auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .projects h2 {
             text-align: center;
             margin-bottom: 3rem;
-            color: #2d394b;
+            color: #1a237e;
+            font-size: 2.5rem;
         }
 
-        .projects-grid {
+        .trophy-case {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .project-card {
-            background: white;
-            border-radius: 10px;
+        .trophy {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid #1a237e;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
         }
 
-        .project-card:hover {
+        .trophy::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,215,0,0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.3s;
+        }
+
+        .trophy:hover::before {
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+
+        .trophy:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(26,35,126,0.3);
         }
 
-        .project-img {
-            height: 200px;
-            background: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-        }
-
-        .project-info {
-            padding: 1.5rem;
+        .trophy-icon {
+            font-size: 3rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         /* Contact Section */
         .contact {
-            padding: 4rem 2rem;
-            background: #2d394b;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
             color: white;
             text-align: center;
         }
 
         .contact h2 {
             margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: #ffd700;
         }
 
         .contact-info {
@@ -228,18 +417,39 @@
             margin: 0 auto;
         }
 
-        /* Footer con Redes Sociales */
+        /* Footer con diseño de campeonato */
         .footer {
-            background: #1a202c;
+            background: linear-gradient(135deg, #0d1452 0%, #1a237e 100%);
             color: white;
             text-align: center;
             padding: 3rem 2rem;
+            border-top: 4px solid #ffd700;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+        }
+
+        .championship {
+            font-size: 1.2rem;
+            color: #ffd700;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             margin: 2rem 0;
         }
 
@@ -247,25 +457,38 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 1.5rem;
+            border: 2px solid transparent;
         }
 
         .social-link:hover {
-            transform: translateY(-3px);
-            background: #9cc9f5;
-            color: #2d394b;
+            transform: translateY(-5px) scale(1.1);
+            background: #ffd700;
+            color: #1a237e;
+            border-color: #ffd700;
+            box-shadow: 0 5px 15px rgba(255,215,0,0.4);
         }
 
         .footer-info {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             opacity: 0.8;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ffd700;
+            color: #1a237e;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 1rem;
         }
 
         /* Responsive */
@@ -275,10 +498,10 @@
             }
             
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
-            .about-content {
+            .about-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -287,9 +510,13 @@
             }
 
             .social-link {
-                width: 45px;
-                height: 45px;
+                width: 50px;
+                height: 50px;
                 font-size: 1.3rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -298,13 +525,13 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="logo">Sair Osorio</div>
+            <div class="logo">SAIR OSORIO</div>
             <ul class="nav-links">
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#about">Sobre Mí</a></li>
-                <li><a href="#skills">Habilidades</a></li>
-                <li><a href="#projects">Proyectos</a></li>
-                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#home">INICIO</a></li>
+                <li><a href="#about">SOBRE MÍ</a></li>
+                <li><a href="#skills">HABILIDADES</a></li>
+                <li><a href="#projects">PROYECTOS</a></li>
+                <li><a href="#contact">CONTACTO</a></li>
             </ul>
         </nav>
     </header>
@@ -312,48 +539,92 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Sair Osorio</h1>
-            <p>Desarrollador Full Stack & Diseñador UX/UI</p>
-            <p>Creando experiencias digitales excepcionales con código limpio y diseño intuitivo</p>
-            <a href="#projects" class="btn">Ver Mis Proyectos</a>
+            <h1>SAIR OSORIO</h1>
+            <div class="hero-tagline">DESARROLLADOR FULL STACK</div>
+            <div class="hero-subtitle">Estratega digital • Innovador tecnológico • Solucionador de problemas</div>
+            <a href="#projects" class="btn">VER MI PORTAFOLIO</a>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
-        <h2>Sobre Mí</h2>
         <div class="about-content">
-            <div class="profile-img">
-                [Tu Foto Aquí]
-            </div>
-            <div>
-                <p>Soy un desarrollador apasionado con más de 3 años de experiencia creando soluciones web innovadoras. Me especializo en el desarrollo full stack con tecnologías modernas como React, Node.js y Python.</p>
-                <br>
-                <p>Mi enfoque combina la eficiencia del código con la excelencia en el diseño de usuario, asegurando que cada proyecto no solo funcione perfectamente, sino que también ofrezca una experiencia memorable.</p>
-                <br>
-                <p>Cuando no estoy programando, me gusta contribuir a proyectos open source, aprender nuevas tecnologías y compartir conocimiento con la comunidad de desarrolladores.</p>
+            <h2>SOBRE MÍ</h2>
+            <div class="about-grid">
+                <div class="profile-card">
+                    <div class="profile-img">
+                        FOTO<br>PERFIL
+                    </div>
+                    <h3>Sair Osorio</h3>
+                    <p>Desarrollador Full Stack</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">3+</div>
+                            <div>Años Exp.</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div>Proyectos</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div>Compromiso</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div>Disponible</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Como un <strong>capitán en el campo de juego</strong>, lidero proyectos de desarrollo web con estrategia, visión y trabajo en equipo. Mi filosofía se basa en la excelencia, la disciplina y la constante evolución.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Especializado en tecnologías modernas, mi enfoque combina la <strong>precisión técnica</strong> con la <strong>creatividad estratégica</strong>, asegurando que cada proyecto no solo cumpla, sino que supere las expectativas.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">
+                        Fuera del código, mantengo el mismo espíritu competitivo: siempre aprendiendo, siempre mejorando, siempre buscando el próximo gran desafío.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
     <section class="skills" id="skills">
-        <h2>Mis Habilidades</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Frontend</h3>
+        <h2>MI FORMACIÓN TÁCTICA</h2>
+        <div class="formation">
+            <div class="position">
+                <div class="position-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>DELANTERO CREATIVO</h3>
+                <p>Frontend Development</p>
                 <p>React, Vue.js, HTML5, CSS3, JavaScript, TypeScript</p>
             </div>
-            <div class="skill-card">
-                <h3>Backend</h3>
+            <div class="position">
+                <div class="position-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3>CENTROCAMPISTA ESTRATÉGICO</h3>
+                <p>Backend Development</p>
                 <p>Node.js, Python, Express, Django, REST APIs</p>
             </div>
-            <div class="skill-card">
-                <h3>Base de Datos</h3>
+            <div class="position">
+                <div class="position-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>DEFENSA SÓLIDA</h3>
+                <p>Base de Datos</p>
                 <p>MongoDB, PostgreSQL, MySQL, Firebase</p>
             </div>
-            <div class="skill-card">
-                <h3>Herramientas</h3>
+            <div class="position">
+                <div class="position-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>DIRECTOR TÉCNICO</h3>
+                <p>DevOps & Tools</p>
                 <p>Git, Docker, AWS, Figma, Webpack</p>
             </div>
         </div>
@@ -361,48 +632,54 @@
 
     <!-- Projects Section -->
     <section class="projects" id="projects">
-        <h2>Proyectos Destacados</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-img">[Imagen Proyecto 1]</div>
-                <div class="project-info">
-                    <h3>E-commerce Platform</h3>
-                    <p>Plataforma de comercio electrónico construida con React y Node.js</p>
+        <h2>TROFEOS Y LOGROS</h2>
+        <div class="trophy-case">
+            <div class="trophy">
+                <div class="trophy-icon">
+                    <i class="fas fa-trophy"></i>
                 </div>
+                <h3>E-commerce Platform</h3>
+                <p>Campeón de Ventas Online</p>
+                <p>Plataforma construida con React y Node.js que incrementó conversiones en 300%</p>
             </div>
-            <div class="project-card">
-                <div class="project-img">[Imagen Proyecto 2]</div>
-                <div class="project-info">
-                    <h3>Task Management App</h3>
-                    <p>Aplicación de gestión de tareas con funcionalidades en tiempo real</p>
+            <div class="trophy">
+                <div class="trophy-icon">
+                    <i class="fas fa-medal"></i>
                 </div>
+                <h3>Task Management App</h3>
+                <p>Oro en Productividad</p>
+                <p>Aplicación que redujo tiempos de gestión en 65% para equipos remotos</p>
             </div>
-            <div class="project-card">
-                <div class="project-img">[Imagen Proyecto 3]</div>
-                <div class="project-info">
-                    <h3>Portfolio Gallery</h3>
-                    <p>Galería interactiva para artistas y fotógrafos</p>
+            <div class="trophy">
+                <div class="trophy-icon">
+                    <i class="fas fa-award"></i>
                 </div>
+                <h3>Portfolio Gallery</h3>
+                <p>Mejor Diseño UX/UI</p>
+                <p>Galería interactiva que aumentó engagement de usuarios en 400%</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <h2>Contacto</h2>
+        <h2>¿LISTO PARA EL PRÓXIMO PARTIDO?</h2>
         <div class="contact-info">
-            <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
-            <br>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Tengo un equipo listo para marcar el próximo gol tecnológico</p>
             <p>Email: sair@osorio.dev</p>
             <p>Teléfono: +57 300 123 4567</p>
             <p>Ubicación: Bogotá, Colombia</p>
             <br>
-            <a href="mailto:sair@osorio.dev" class="btn">Enviar Email</a>
+            <a href="mailto:sair@osorio.dev" class="btn">INICIAR PROYECTO</a>
         </div>
     </section>
 
-    <!-- Footer con Redes Sociales -->
+    <!-- Footer -->
     <footer class="footer">
+        <div class="championship">
+            CAMPEÓN EN DESARROLLO WEB
+        </div>
+        
         <div class="social-links">
             <!-- Instagram -->
             <a href="https://instagram.com/tuusuario" target="_blank" class="social-link" title="Sígueme en Instagram">
@@ -419,12 +696,12 @@
                 <i class="fas fa-envelope"></i>
             </a>
 
-            <!-- LinkedIn (extra) -->
+            <!-- LinkedIn -->
             <a href="https://linkedin.com/in/tuusuario" target="_blank" class="social-link" title="Conectemos en LinkedIn">
                 <i class="fab fa-linkedin"></i>
             </a>
 
-            <!-- GitHub (extra) -->
+            <!-- GitHub -->
             <a href="https://github.com/tuusuario" target="_blank" class="social-link" title="Mira mi código en GitHub">
                 <i class="fab fa-github"></i>
             </a>
@@ -432,9 +709,7 @@
         
         <div class="footer-info">
             <p>&copy; 2024 Sair Osorio. Todos los derechos reservados.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
-                Diseñado y desarrollado con ❤️ por Sair Osorio
-            </p>
+            <div class="badge">MVP DEL DESARROLLO WEB</div>
         </div>
     </footer>
 
@@ -472,7 +747,10 @@
             observer.observe(section);
         });
 
-        console.log('Portfolio de Sair Osorio cargado correctamente 🚀');
+        // Efecto de confeti al cargar
+        window.addEventListener('load', function() {
+            console.log('⚽ Portfolio de Sair Osorio cargado - ¡Listo para el partido! 🎯');
+        });
     </script>
 </body>
 </html>
