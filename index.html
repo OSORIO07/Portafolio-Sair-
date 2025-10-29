@@ -3,51 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sair Osorio - Portfolio Personal</title>
-    <!-- Font Awesome para iconos -->
+    <title>Sair Osorio - Portafolio Profesional</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset y estilos básicos */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            background-attachment: fixed;
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #34495e;
         }
 
-        /* Patrón sutil de cancha de fútbol */
-        body::before {
-            content: '';
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Header Moderno */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
             position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(90deg, transparent 49%, rgba(255,255,255,0.03) 49%, rgba(255,255,255,0.03) 51%, transparent 51%),
-                linear-gradient(transparent 49%, rgba(255,255,255,0.03) 49%, rgba(255,255,255,0.03) 51%, transparent 51%),
-                radial-gradient(circle at 50% 50%, transparent 20%, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 21%, transparent 21%);
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        /* Header con diseño de camiseta */
-        .header {
-            background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #1a237e 100%);
-            color: white;
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 4px solid #ffd700;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            box-shadow: 0 2px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
 
         .nav {
@@ -59,47 +51,57 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #ffd700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            background: rgba(255,255,255,0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            border: 2px solid #ffd700;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
-            background: rgba(255,255,255,0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            border: 1px solid rgba(255,255,255,0.2);
+            gap: 2.5rem;
         }
 
         .nav-links a {
-            color: white;
+            color: var(--text);
             text-decoration: none;
-            transition: all 0.3s;
             font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .nav-links a:hover {
-            color: #ffd700;
-            background: rgba(255,215,0,0.1);
-            transform: translateY(-2px);
+            color: var(--accent);
         }
 
-        /* Hero Section con diseño de estadio */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section Moderna */
         .hero {
-            background: linear-gradient(rgba(26, 35, 126, 0.9), rgba(26, 35, 126, 0.8)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%231a237e" width="1200" height="800"/><circle fill="%23ffd700" opacity="0.1" cx="600" cy="400" r="300"/><circle fill="%23ffd700" opacity="0.05" cx="600" cy="400" r="500"/></svg>');
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 6rem 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -112,383 +114,466 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(26, 35, 126, 0.9) 70%);
-            pointer-events: none;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><polygon fill="%23ffffff" fill-opacity="0.05" points="0,800 1200,400 1200,800"/><polygon fill="%23ffffff" fill-opacity="0.03" points="0,800 0,0 1200,0"/></svg>');
         }
 
         .hero-content {
             max-width: 800px;
-            margin: 0 auto;
+            padding: 2rem;
             position: relative;
             z-index: 2;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-            color: #ffd700;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .hero-tagline {
+        .hero-subtitle {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             opacity: 0.9;
             font-weight: 300;
         }
 
-        .hero-subtitle {
+        .hero-description {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-            color: #1a237e;
             padding: 15px 35px;
-            border-radius: 30px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            border: none;
-            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-size: 0.9rem;
         }
 
-        .btn:hover {
-            background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: #c0392b;
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255,215,0,0.4);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6);
         }
 
-        /* About Section con diseño de tarjeta de jugador */
-        .about {
-            padding: 5rem 2rem;
+        .btn-outline {
+            border-color: white;
+            color: white;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
             background: white;
-            max-width: 1200px;
-            margin: 3rem auto;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border: 3px solid #1a237e;
-            position: relative;
-            overflow: hidden;
+            color: var(--primary);
+            transform: translateY(-3px);
         }
 
-        .about::before {
+        /* Secciones Generales */
+        .section {
+            padding: 100px 2rem;
+        }
+
+        .section-dark {
+            background: var(--primary);
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, #ffd700, transparent, #1a237e, transparent);
-            animation: rotate 10s linear infinite;
-            opacity: 0.1;
-            z-index: 1;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .about-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .about h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #1a237e;
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
         }
 
-        .about h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 25%;
-            width: 50%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+        .section-dark .section-title::after {
+            background: white;
         }
 
-        .about-grid {
+        /* About Section */
+        .about-content {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
         }
 
-        .profile-card {
-            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            color: white;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(26, 35, 126, 0.3);
-            border: 2px solid #ffd700;
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-            margin: 0 auto 1.5rem;
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            border: 3px solid var(--accent);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .image-placeholder {
+            height: 500px;
+            background: linear-gradient(45deg, var(--accent), #ff7675);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #1a237e;
-            font-weight: bold;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
             font-size: 1.1rem;
-            border: 4px solid white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            line-height: 1.8;
+            color: var(--text);
         }
 
         .stats {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .stat {
-            background: rgba(255,255,255,0.1);
-            padding: 0.8rem;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.2);
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
         }
 
         .stat-number {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #ffd700;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
         }
 
-        /* Skills Section con diseño de formación tática */
-        .skills {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
-            color: white;
-            position: relative;
-        }
-
-        .skills::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                linear-gradient(90deg, transparent 49%, rgba(255,255,255,0.05) 49%, rgba(255,255,255,0.05) 51%, transparent 51%),
-                linear-gradient(transparent 49%, rgba(255,255,255,0.05) 49%, rgba(255,255,255,0.05) 51%, transparent 51%);
-            pointer-events: none;
-        }
-
-        .skills h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-            color: #ffd700;
-            position: relative;
-            z-index: 2;
-        }
-
-        .formation {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .position {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-            backdrop-filter: blur(10px);
-        }
-
-        .position:hover {
-            transform: translateY(-10px);
-            border-color: #ffd700;
-            box-shadow: 0 10px 25px rgba(255,215,0,0.3);
-        }
-
-        .position-icon {
-            font-size: 2.5rem;
-            color: #ffd700;
-            margin-bottom: 1rem;
-        }
-
-        /* Projects Section con diseño de trofeos */
-        .projects {
-            padding: 5rem 2rem;
-            background: white;
-            max-width: 1200px;
-            margin: 3rem auto;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .projects h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #1a237e;
-            font-size: 2.5rem;
-        }
-
-        .trophy-case {
+        /* Services Section */
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .trophy {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 2rem;
+        .service-card {
+            background: white;
+            padding: 3rem 2rem;
             border-radius: 15px;
             text-align: center;
-            transition: all 0.3s;
-            border: 2px solid #1a237e;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .trophy::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,215,0,0.1), transparent);
-            transform: rotate(45deg);
-            transition: all 0.3s;
-        }
-
-        .trophy:hover::before {
-            transform: rotate(45deg) translate(50%, 50%);
-        }
-
-        .trophy:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(26,35,126,0.3);
-        }
-
-        .trophy-icon {
-            font-size: 3rem;
-            color: #ffd700;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .contact h2 {
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
-            color: #ffd700;
-        }
-
-        .contact-info {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Footer con diseño de campeonato */
-        .footer {
-            background: linear-gradient(135deg, #0d1452 0%, #1a237e 100%);
-            color: white;
-            text-align: center;
-            padding: 3rem 2rem;
-            border-top: 4px solid #ffd700;
-            position: relative;
-        }
-
-        .footer::before {
+        .service-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
-        .championship {
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        .portfolio-image {
+            height: 300px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
             font-size: 1.2rem;
-            color: #ffd700;
-            margin-bottom: 2rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(231, 76, 60, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-info {
+            text-align: center;
+            color: white;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-info {
+            transform: translateY(0);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--accent);
+        }
+
+        .timeline-item {
+            margin-bottom: 4rem;
+            position: relative;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -50px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -50px;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-info h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
         }
 
         .social-links {
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 2rem 0;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
         .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 1.5rem;
-            border: 2px solid transparent;
         }
 
         .social-link:hover {
-            transform: translateY(-5px) scale(1.1);
-            background: #ffd700;
-            color: #1a237e;
-            border-color: #ffd700;
-            box-shadow: 0 5px 15px rgba(255,215,0,0.4);
+            background: var(--accent);
+            transform: translateY(-3px);
         }
 
-        .footer-info {
-            margin-top: 2rem;
-            opacity: 0.8;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #ffd700;
-            color: #1a237e;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: bold;
-            margin-top: 1rem;
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         /* Responsive */
@@ -496,26 +581,35 @@
             .nav-links {
                 display: none;
             }
-            
+
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
-            .about-grid {
+
+            .about-content,
+            .contact-content {
                 grid-template-columns: 1fr;
             }
 
-            .social-links {
-                gap: 1rem;
-            }
-
-            .social-link {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
-            }
-
             .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 70px;
+            }
+
+            .timeline-content::before {
+                left: 20px !important;
+            }
+
+            .footer-content {
                 grid-template-columns: 1fr;
             }
         }
@@ -525,13 +619,14 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="logo">SAIR OSORIO</div>
+            <a href="#" class="logo">Sair <span>Osorio</span></a>
             <ul class="nav-links">
-                <li><a href="#home">INICIO</a></li>
-                <li><a href="#about">SOBRE MÍ</a></li>
-                <li><a href="#skills">HABILIDADES</a></li>
-                <li><a href="#projects">PROYECTOS</a></li>
-                <li><a href="#contact">CONTACTO</a></li>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Sobre Mí</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#portfolio">Portafolio</a></li>
+                <li><a href="#experience">Experiencia</a></li>
+                <li><a href="#contact">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -539,192 +634,283 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>SAIR OSORIO</h1>
-            <div class="hero-tagline">DESARROLLADOR FULL STACK</div>
-            <div class="hero-subtitle">Estratega digital • Innovador tecnológico • Solucionador de problemas</div>
-            <a href="#projects" class="btn">VER MI PORTAFOLIO</a>
+            <h1>Sair Osorio</h1>
+            <div class="hero-subtitle">Desarrollador Full Stack & Diseñador UI/UX</div>
+            <p class="hero-description">
+                Creo experiencias digitales excepcionales que combinan diseño innovador 
+                con tecnología de vanguardia para impulsar el éxito de tu negocio.
+            </p>
+            <div class="btn-group">
+                <a href="#portfolio" class="btn btn-primary">Ver Mi Trabajo</a>
+                <a href="#contact" class="btn btn-outline">Contáctame</a>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about-content">
-            <h2>SOBRE MÍ</h2>
-            <div class="about-grid">
-                <div class="profile-card">
-                    <div class="profile-img">
-                        FOTO<br>PERFIL
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <div style="text-align: center;">
+                            <i class="fas fa-user" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+                            <p>Tu Foto Profesional</p>
+                        </div>
                     </div>
-                    <h3>Sair Osorio</h3>
-                    <p>Desarrollador Full Stack</p>
+                </div>
+                <div class="about-text">
+                    <h3>¡Hola! Soy Sair Osorio</h3>
+                    <p>
+                        Desarrollador full stack con más de 3 años de experiencia creando soluciones 
+                        digitales innovadoras. Mi pasión es transformar ideas complejas en experiencias 
+                        de usuario intuitivas y eficientes.
+                    </p>
+                    <p>
+                        Especializado en tecnologías modernas como React, Node.js, Python y AWS, 
+                        combino habilidades técnicas sólidas con una mentalidad creativa para 
+                        entregar productos que superan las expectativas.
+                    </p>
                     <div class="stats">
-                        <div class="stat">
-                            <div class="stat-number">3+</div>
-                            <div>Años Exp.</div>
-                        </div>
-                        <div class="stat">
+                        <div class="stat-item">
                             <div class="stat-number">50+</div>
-                            <div>Proyectos</div>
+                            <div>Proyectos Completados</div>
                         </div>
-                        <div class="stat">
+                        <div class="stat-item">
+                            <div class="stat-number">3+</div>
+                            <div>Años de Experiencia</div>
+                        </div>
+                        <div class="stat-item">
                             <div class="stat-number">100%</div>
-                            <div>Compromiso</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">24/7</div>
-                            <div>Disponible</div>
+                            <div>Clientes Satisfechos</div>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        Como un <strong>capitán en el campo de juego</strong>, lidero proyectos de desarrollo web con estrategia, visión y trabajo en equipo. Mi filosofía se basa en la excelencia, la disciplina y la constante evolución.
-                    </p>
-                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        Especializado en tecnologías modernas, mi enfoque combina la <strong>precisión técnica</strong> con la <strong>creatividad estratégica</strong>, asegurando que cada proyecto no solo cumpla, sino que supere las expectativas.
-                    </p>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">
-                        Fuera del código, mantengo el mismo espíritu competitivo: siempre aprendiendo, siempre mejorando, siempre buscando el próximo gran desafío.
-                    </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section section-dark" id="services">
+        <div class="container">
+            <h2 class="section-title">Mis Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Desarrollo Web</h3>
+                    <p>Creación de aplicaciones web modernas, responsivas y escalables usando las últimas tecnologías.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Apps Móviles</h3>
+                    <p>Desarrollo de aplicaciones móviles nativas e híbridas para iOS y Android.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Diseño UI/UX</h3>
+                    <p>Diseño de interfaces intuitivas y experiencias de usuario memorables.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-        <h2>MI FORMACIÓN TÁCTICA</h2>
-        <div class="formation">
-            <div class="position">
-                <div class="position-icon">
-                    <i class="fas fa-code"></i>
+    <!-- Portfolio Section -->
+    <section class="section" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Mi Portafolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        E-commerce Platform
+                    </div>
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-info">
+                            <h3>E-commerce Platform</h3>
+                            <p>React, Node.js, MongoDB</p>
+                        </div>
+                    </div>
                 </div>
-                <h3>DELANTERO CREATIVO</h3>
-                <p>Frontend Development</p>
-                <p>React, Vue.js, HTML5, CSS3, JavaScript, TypeScript</p>
-            </div>
-            <div class="position">
-                <div class="position-icon">
-                    <i class="fas fa-server"></i>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        Task Management App
+                    </div>
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-info">
+                            <h3>Task Management</h3>
+                            <p>Vue.js, Express, PostgreSQL</p>
+                        </div>
+                    </div>
                 </div>
-                <h3>CENTROCAMPISTA ESTRATÉGICO</h3>
-                <p>Backend Development</p>
-                <p>Node.js, Python, Express, Django, REST APIs</p>
-            </div>
-            <div class="position">
-                <div class="position-icon">
-                    <i class="fas fa-database"></i>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        Analytics Dashboard
+                    </div>
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-info">
+                            <h3>Analytics Dashboard</h3>
+                            <p>React, Python, MySQL</p>
+                        </div>
+                    </div>
                 </div>
-                <h3>DEFENSA SÓLIDA</h3>
-                <p>Base de Datos</p>
-                <p>MongoDB, PostgreSQL, MySQL, Firebase</p>
-            </div>
-            <div class="position">
-                <div class="position-icon">
-                    <i class="fas fa-tools"></i>
-                </div>
-                <h3>DIRECTOR TÉCNICO</h3>
-                <p>DevOps & Tools</p>
-                <p>Git, Docker, AWS, Figma, Webpack</p>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <h2>TROFEOS Y LOGROS</h2>
-        <div class="trophy-case">
-            <div class="trophy">
-                <div class="trophy-icon">
-                    <i class="fas fa-trophy"></i>
+    <!-- Experience Section -->
+    <section class="section section-dark" id="experience">
+        <div class="container">
+            <h2 class="section-title">Experiencia</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Senior Full Stack Developer</h3>
+                        <p style="color: var(--accent); margin: 0.5rem 0;">Tech Solutions Inc. | 2022 - Presente</p>
+                        <p>Lideré el desarrollo de aplicaciones web escalables utilizando React, Node.js y MongoDB.</p>
+                    </div>
                 </div>
-                <h3>E-commerce Platform</h3>
-                <p>Campeón de Ventas Online</p>
-                <p>Plataforma construida con React y Node.js que incrementó conversiones en 300%</p>
-            </div>
-            <div class="trophy">
-                <div class="trophy-icon">
-                    <i class="fas fa-medal"></i>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Full Stack Developer</h3>
+                        <p style="color: var(--accent); margin: 0.5rem 0;">Digital Agency Co. | 2020 - 2022</p>
+                        <p>Desarrollé más de 30 aplicaciones web para clientes internacionales.</p>
+                    </div>
                 </div>
-                <h3>Task Management App</h3>
-                <p>Oro en Productividad</p>
-                <p>Aplicación que redujo tiempos de gestión en 65% para equipos remotos</p>
-            </div>
-            <div class="trophy">
-                <div class="trophy-icon">
-                    <i class="fas fa-award"></i>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Junior Developer</h3>
+                        <p style="color: var(--accent); margin: 0.5rem 0;">Startup Innovadora | 2019 - 2020</p>
+                        <p>Inicié mi carrera desarrollando features frontend y colaborando en proyectos.</p>
+                    </div>
                 </div>
-                <h3>Portfolio Gallery</h3>
-                <p>Mejor Diseño UX/UI</p>
-                <p>Galería interactiva que aumentó engagement de usuarios en 400%</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2>¿LISTO PARA EL PRÓXIMO PARTIDO?</h2>
-        <div class="contact-info">
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Tengo un equipo listo para marcar el próximo gol tecnológico</p>
-            <p>Email: sair@osorio.dev</p>
-            <p>Teléfono: +57 300 123 4567</p>
-            <p>Ubicación: Bogotá, Colombia</p>
-            <br>
-            <a href="mailto:sair@osorio.dev" class="btn">INICIAR PROYECTO</a>
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contáctame</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+57 300 123 4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>sair@osorio.dev</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Ubicación</h4>
+                            <p>Bogotá, Colombia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Tu Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Tu Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Tu Mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="championship">
-            CAMPEÓN EN DESARROLLO WEB
-        </div>
-        
-        <div class="social-links">
-            <!-- Instagram -->
-            <a href="https://instagram.com/tuusuario" target="_blank" class="social-link" title="Sígueme en Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            
-            <!-- WhatsApp -->
-            <a href="https://wa.me/573001234567" target="_blank" class="social-link" title="Escríbeme por WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            
-            <!-- Correo -->
-            <a href="mailto:sair@osorio.dev" class="social-link" title="Envíame un correo">
-                <i class="fas fa-envelope"></i>
-            </a>
-
-            <!-- LinkedIn -->
-            <a href="https://linkedin.com/in/tuusuario" target="_blank" class="social-link" title="Conectemos en LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-
-            <!-- GitHub -->
-            <a href="https://github.com/tuusuario" target="_blank" class="social-link" title="Mira mi código en GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-        
-        <div class="footer-info">
-            <p>&copy; 2024 Sair Osorio. Todos los derechos reservados.</p>
-            <div class="badge">MVP DEL DESARROLLO WEB</div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Sair Osorio</h3>
+                    <p>Desarrollador Full Stack apasionado por crear soluciones digitales innovadoras que transforman negocios.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3>Enlaces Rápidos</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#home" style="color: white; text-decoration: none;">Inicio</a></li>
+                        <li><a href="#about" style="color: white; text-decoration: none;">Sobre Mí</a></li>
+                        <li><a href="#portfolio" style="color: white; text-decoration: none;">Portafolio</a></li>
+                        <li><a href="#contact" style="color: white; text-decoration: none;">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Servicios</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#services" style="color: white; text-decoration: none;">Desarrollo Web</a></li>
+                        <li><a href="#services" style="color: white; text-decoration: none;">Apps Móviles</a></li>
+                        <li><a href="#services" style="color: white; text-decoration: none;">Diseño UI/UX</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sair Osorio. Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling para navegación
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
 
-        // Efecto de aparición al hacer scroll
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.padding = '1rem 2rem';
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.padding = '1.5rem 2rem';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -739,17 +925,12 @@
             });
         }, observerOptions);
 
-        // Aplicar a las secciones
-        document.querySelectorAll('.about, .skills, .projects, .contact').forEach(section => {
+        // Apply to sections
+        document.querySelectorAll('.about-content, .services-grid, .portfolio-grid, .timeline, .contact-content').forEach(section => {
             section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
+            section.style.transform = 'translateY(30px)';
             section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(section);
-        });
-
-        // Efecto de confeti al cargar
-        window.addEventListener('load', function() {
-            console.log('⚽ Portfolio de Sair Osorio cargado - ¡Listo para el partido! 🎯');
         });
     </script>
 </body>
